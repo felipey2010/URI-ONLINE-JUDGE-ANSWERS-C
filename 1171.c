@@ -1,21 +1,22 @@
 #include <stdio.h>
 
-main(){
-    int number, cont[2000];
-    int i, num;
-    for(i = 0; i < 2000; i++){
+int main(){
+    int number, cont[2001];
+    int i, num, aux;
+    for(i = 0; i < 2001; i++){
         cont[i] = 0;
     }
     scanf("%d", &num);
 
-    for( ; num > 0; num--){
-        scanf("%d", &number);
-        if(number >= 1 && number <= 2000){
-            cont[number]++;
-        }
+    while(num > 0){
+        scanf("%d", &aux);
+        if(aux >= 0 && aux <= 2000)
+            cont[aux]++;
+        num--;
     }
-    for(i = 0; i < 2000; i++){
-        if(cont[i] > 0){
+
+    for(i = 0; i < 2001; i++){
+        if(cont[i] != 0){
             printf("%d aparece %d vez(es)\n", i, cont[i]);
         }
     }
